@@ -182,7 +182,7 @@ export class MonsterEntry {
 		this.levelName = levelName;
 		this.areaLevel = areaLevel;
 		this.monLvlValue = monLvlValue;
-		this.baseExp = Math.floor(areaLevel * monLvlValue / 100);
+		this.baseExp = Math.floor(monExp * monLvlValue / 100);
 	}
 
 	setTableCells(origNormExpCell, origChampExpCell, origUniExpCell,

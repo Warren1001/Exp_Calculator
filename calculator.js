@@ -18,7 +18,7 @@ function load() {
 		createTableHeader(headerRow, "Monster ID");
 		createTableHeader(headerRow, "Monster Name");
 		createTableHeader(headerRow, "Area (Level)");
-		createTableHeader(headerRow, "Base XP", "Experience given before increases, sharing, and penalties.");
+		createTableHeader(headerRow, "Base XP", "Experience given by this monster type before any modification occurs.");
 		createTableHeader(headerRow, "N XP", "Experience given by a normal monster of this type.");
 		createTableHeader(headerRow, "C XP", "Experience given by a Champion monster of this type.");
 		createTableHeader(headerRow, "U XP", "Experience given by a Unique monster of this type.");

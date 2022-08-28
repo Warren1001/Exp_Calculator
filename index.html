@@ -9,12 +9,44 @@
   <title>D2R Terrorization Experience Calculator</title>
 </head>
 <body>
-  <h3>v0.1.0</h3>
+  <h3>v1.0.0</h3>
   <p>Last updated for: D2R PTR 2.5 v1</p>
   <p>Primarily developed by Warren1001 from Llama's community. You can contact me <a href="https://discord.gg/mrllamasc">on his Discord server</a> or DM me directly on Discord (Warren#2433).</p>
   <p><a href="https://github.com/Warren1001/Exp_Calculator/tree/master">This calculator is open source</a>. <a href="https://github.com/Warren1001/Exp_Calculator/issues">Report a bug if you find one</a>. <a href="https://github.com/Warren1001/Exp_Calculator/blob/master/README.md">Changelog</a></p>
   <p>Every time you visit this page for the first time, or you see mention of me updating this version, please full refresh with CTRL + F5.</p>
-  <p>This will look very rough until I have time to flesh it out. It's currently set to show experience you would receive if you were level 98, in a 8 player game, but in a solo party. I'll add customization options in the future.</p>
+  <p>May be lacking useful things, let me know.</p>
+  <br>
+  <label for="yourLevel">Your Level:</label>
+  <input type="number" id="yourLevel" value="98" min="1" max="98">
+  <label for="playerAmount">Player Count:</label>
+  <input type="number" id="playerAmount" value="8" min="1" max="8">
+  <label for="partyAmount">Players Partied:</label>
+  <input type="number" id="partyAmount" value="1" min="1" max="8">
+  <label for="expGained">% Exp Gained:</label>
+  <input type="number" id="expGained" value="10" min="0" max="65">
+  <br>
+  <div id="partyLevel1Container" style="display: none">
+    <label for="partyLevel1">Party Member Levels:</label>
+    <input type="number" id="partyLevel1" value="80" min="1" max="99">
+  </div>
+  <div id="partyLevel2Container" style="display: none">
+    <input type="number" id="partyLevel2" value="80" min="1" max="99">
+  </div>
+  <div id="partyLevel3Container" style="display: none">
+    <input type="number" id="partyLevel3" value="80" min="1" max="99">
+  </div>
+  <div id="partyLevel4Container" style="display: none">
+    <input type="number" id="partyLevel4" value="80" min="1" max="99">
+  </div>
+  <div id="partyLevel5Container" style="display: none">
+    <input type="number" id="partyLevel5" value="80" min="1" max="99">
+  </div>
+  <div id="partyLevel6Container" style="display: none">
+    <input type="number" id="partyLevel6" value="80" min="1" max="99">
+  </div>
+  <div id="partyLevel7Container" style="display: none">
+    <input type="number" id="partyLevel7" value="80" min="1" max="99">
+  </div>
   <br>
   <div id="tableContainer"></div>
 </body>

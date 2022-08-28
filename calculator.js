@@ -8,6 +8,12 @@ function load() {
 	constants.setupUpdateTableInputElements(updateTable);
 	createTable();
 
+	/*for (let j = 0; j < constants.monLvls.length; j++) {
+		let l = j + 1;
+		let xp = constants.calculateExperience(95, 1, 1, 1, 98, 98, j, 5);
+		console.log(l, ",", xp);
+	}*/
+
 	function createTable() {
 
 		let tableDiv = document.createElement("div");
@@ -18,7 +24,7 @@ function load() {
 		createTableHeader(headerRow, "Monster ID");
 		createTableHeader(headerRow, "Monster Name");
 		createTableHeader(headerRow, "Area (Level)");
-		createTableHeader(headerRow, "Base XP", "Experience given by this monster type before any modification occurs.");
+		//createTableHeader(headerRow, "Base XP", "Experience given by this monster type before any modification occurs.");
 		createTableHeader(headerRow, "N XP", "Experience given by a normal monster of this type.");
 		createTableHeader(headerRow, "C XP", "Experience given by a Champion monster of this type.");
 		createTableHeader(headerRow, "U XP", "Experience given by a Unique monster of this type.");
@@ -37,7 +43,7 @@ function load() {
 			createTableCell(row, d.monId);
 			createTableCell(row, d.monName);
 			createTableCell(row, d.levelName + " (" + d.areaLevel + ")");
-			createTableCell(row, d.baseExp);
+			//createTableCell(row, d.baseExp);
 			let origNormExpCell = createEmptyTableCell(row);
 			let origChampExpCell = createEmptyTableCell(row);
 			let origUniExpCell = createEmptyTableCell(row);

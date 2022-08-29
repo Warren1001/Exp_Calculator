@@ -32,7 +32,7 @@ const monLvls = [
 	79734, 81093, 82452, 83811, 160000
 ];
 
-export function calculateExperience(monExp, multiplier, playerAmount, partyAmount, totalPartyLevel, yourLevel, baseMonLevel, actualMonLevel, expGained) {
+export function calculateExperience(monExp, multiplier, playerAmount, partyAmount, totalPartyLevel, yourLevel, baseMonLevel, actualMonLevel, expGained, terror) {
 	//console.log("monExp=", monExp, ",playerAmount=", playerAmount, ",partyAmount=", partyAmount, ",totalPartyLevel=", totalPartyLevel, ",yourLevel=", yourLevel, ",monLevel=", monLevel, ",expGained=", expGained);
 	let baseExp = Math.floor(monExp * monLvls[baseMonLevel - 1] / 100);
 	//console.log("baseExp=", baseExp);
@@ -146,7 +146,7 @@ export function calculateExperience(monExp, multiplier, playerAmount, partyAmoun
 	finalFinalExp = finalExp + Math.floor(finalExp * 25 / 100); // TODO close but wrong
 	//finalFinalExp = finalExp + Math.floor(finalExp / 100) * 25;
 	//console.log("finalExp=", finalExp);
-	return finalFinalExp;
+	return terror ? finalFinalExp : finalExp;
 }
 
 function trun(number) {
@@ -232,13 +232,13 @@ export class MonsterEntry {
 	}
 
 	update(yourLevel, playerAmount, partyAmount, totalPartyLevel, expGained) {
-		this.origNormExpCell.innerHTML = calculateExperience(this.monExp, 1, playerAmount, partyAmount, totalPartyLevel, yourLevel, this.areaLevel, this.areaLevel, expGained);
-		this.origChampExpCell.innerHTML = calculateExperience(this.monExp, 3, playerAmount, partyAmount, totalPartyLevel, yourLevel, this.areaLevel, this.areaLevel + 2, expGained);
-		this.origUniExpCell.innerHTML = calculateExperience(this.monExp, 5, playerAmount, partyAmount, totalPartyLevel, yourLevel, this.areaLevel, this.areaLevel + 3, expGained);
+		this.origNormExpCell.innerHTML = calculateExperience(this.monExp, 1, playerAmount, partyAmount, totalPartyLevel, yourLevel, this.areaLevel, this.areaLevel, expGained, false);
+		this.origChampExpCell.innerHTML = calculateExperience(this.monExp, 3, playerAmount, partyAmount, totalPartyLevel, yourLevel, this.areaLevel, this.areaLevel + 2, expGained, false);
+		this.origUniExpCell.innerHTML = calculateExperience(this.monExp, 5, playerAmount, partyAmount, totalPartyLevel, yourLevel, this.areaLevel, this.areaLevel + 3, expGained, false);
 		let terrorAreaLevel = Math.min(96, Math.max(this.areaLevel, yourLevel) + 2);
-		this.terrNormExpCell.innerHTML = calculateExperience(this.monExp, 1, playerAmount, partyAmount, totalPartyLevel, yourLevel, terrorAreaLevel, terrorAreaLevel, expGained);
-		this.terrChampExpCell.innerHTML = calculateExperience(this.monExp, 3, playerAmount, partyAmount, totalPartyLevel, yourLevel, terrorAreaLevel, Math.min(98, Math.max(this.areaLevel, yourLevel) + 4), expGained);
-		this.terrUniExpCell.innerHTML = calculateExperience(this.monExp, 5, playerAmount, partyAmount, totalPartyLevel, yourLevel, terrorAreaLevel, Math.min(99, Math.max(this.areaLevel, yourLevel) + 5), expGained);
+		this.terrNormExpCell.innerHTML = calculateExperience(this.monExp, 1, playerAmount, partyAmount, totalPartyLevel, yourLevel, terrorAreaLevel, terrorAreaLevel, expGained, true);
+		this.terrChampExpCell.innerHTML = calculateExperience(this.monExp, 3, playerAmount, partyAmount, totalPartyLevel, yourLevel, terrorAreaLevel, Math.min(98, Math.max(this.areaLevel, yourLevel) + 4), expGained, true);
+		this.terrUniExpCell.innerHTML = calculateExperience(this.monExp, 5, playerAmount, partyAmount, totalPartyLevel, yourLevel, terrorAreaLevel, Math.min(99, Math.max(this.areaLevel, yourLevel) + 5), expGained, true);
 	}
 
 }

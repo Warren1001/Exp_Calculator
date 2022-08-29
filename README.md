@@ -2,6 +2,9 @@
 
 Credits to Amazon Basin and co. for the entire experience algorithm.
 
+### v1.1.1
+- Very close to being correct now.
+
 ### v1.1.0
 - Blizzard sucks. Experience gain is much higher than originally thought. Why can't they just say what they changed exactly?
 

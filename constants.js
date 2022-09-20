@@ -37,6 +37,7 @@ export function calculateExperience(monExp, multiplier, playerAmount, partyAmoun
 	let baseExp = Math.floor(monExp * monLvls[baseMonLevel - 1] / 100);
 	//console.log("baseExp=", baseExp);
 	let baseExpMulti = baseExp * multiplier;
+	//let testExp = baseExpMulti + Math.floor(baseExpMulti / 4);
 	//console.log("baseExpMulti=", baseExpMulti);
 	let playerCountExp = Math.floor(baseExpMulti * ((playerAmount + 1) / 2));
 	//console.log("playerCountExp=", playerCountExp);
@@ -48,6 +49,8 @@ export function calculateExperience(monExp, multiplier, playerAmount, partyAmoun
 	let partyCountExp = Math.max(1, addPartyBonus);
 	//console.log("partyCountExp=", partyCountExp);
 	let partyCountDividedExp = trun(partyCountExp * (yourLevel / totalPartyLevel)); // TODO
+	//let testExp = trun(partyCountDividedExp / 100) * 125;
+	//let testExp = partyCountDividedExp + Math.floor(partyCountDividedExp * 25 / 100); // TODO close but wrong
 	let ceilingExp = Math.min(partyCountDividedExp, EXP_CAP);
 	//console.log("ceilingExp=", ceilingExp);
 	let levelDiff = actualMonLevel - yourLevel;
@@ -143,10 +146,10 @@ export function calculateExperience(monExp, multiplier, playerAmount, partyAmoun
 	} else {
 		finalFinalExp = finalExp + Math.floor(finalExp * 25 / 100);
 	}*/
-	finalFinalExp = finalExp + Math.floor(finalExp * 25 / 100); // TODO close but wrong
-	//finalFinalExp = finalExp + Math.floor(finalExp / 100) * 25;
+	//finalFinalExp = finalExp + Math.floor(finalExp / 100) * 25; // TODO close but wrong
+	//finalFinalExp = Math.floor(finalExp * 1.25);
 	//console.log("finalExp=", finalExp);
-	return terror ? finalFinalExp : finalExp;
+	return terror ? finalExp : finalExp;
 }
 
 function trun(number) {
@@ -273,9 +276,17 @@ const data = [
 	new MonsterEntry("skeleton1", "Skeleton", 85, "Cave Level 1", 77),
 	new MonsterEntry("zombie2", "Hungry Dead", 105, "Cave Level 1", 77),
 	new MonsterEntry("cr_archer1", "Dark Ranger", 100, "Cave Level 1", 77),
+	new MonsterEntry("skeleton3", "Bone Warrior", 85, "Pit Level 1", 85),
+	new MonsterEntry("fallen3", "Devilkin", 65, "Pit Level 1", 85),
+	new MonsterEntry("corruptrogue3", "Dark Stalker", 95, "Pit Level 1", 85),
+	new MonsterEntry("cr_archer3", "Dark Archer", 100, "Pit Level 1", 85),
 	new MonsterEntry("skeleton1", "Skeleton", 85, "Cave Level 2", 78),
 	new MonsterEntry("zombie2", "Hungry Dead", 105, "Cave Level 2", 78),
 	new MonsterEntry("cr_archer1", "Dark Ranger", 100, "Cave Level 2", 78),
+	new MonsterEntry("skeleton3", "Bone Warrior", 85, "Pit Level 2", 85),
+	new MonsterEntry("fallen3", "Devilkin", 65, "Pit Level 2", 85),
+	new MonsterEntry("corruptrogue3", "Dark Stalker", 95, "Pit Level 2", 85),
+	new MonsterEntry("cr_archer3", "Dark Archer", 100, "Pit Level 2", 85),
 	new MonsterEntry("skeleton1", "Skeleton", 85, "Burial Grounds", 80),
 	new MonsterEntry("zombie2", "Hungry Dead", 105, "Burial Grounds", 80),
 	new MonsterEntry("skeleton1", "Skeleton", 85, "Crypt", 83),
@@ -371,26 +382,6 @@ const data = [
 	new MonsterEntry("pantherwoman1", "Huntress", 80, "Sewers Level 3", 75),
 	new MonsterEntry("mummy1", "Dried Corpse", 100, "Sewers Level 3", 75),
 	new MonsterEntry("skmage_fire3", "Burning Dead Mage", 110, "Sewers Level 3", 75),
-	new MonsterEntry("sandraider3", "Invader", 130, "Harem Level 2", 78),
-	new MonsterEntry("baboon1", "Dune Beast", 110, "Harem Level 2", 78),
-	new MonsterEntry("sk_archer5", "Horror Archer", 95, "Harem Level 2", 78),
-	new MonsterEntry("blunderbore1", "Blunderbore", 130, "Harem Level 2", 78),
-	new MonsterEntry("skmage_cold4", "Horror Mage", 110, "Harem Level 2", 78),
-	new MonsterEntry("sandraider3", "Invader", 130, "Palace Cellar Level 1", 78),
-	new MonsterEntry("baboon1", "Dune Beast", 110, "Palace Cellar Level 1", 78),
-	new MonsterEntry("sk_archer5", "Horror Archer", 95, "Palace Cellar Level 1", 78),
-	new MonsterEntry("blunderbore1", "Blunderbore", 130, "Palace Cellar Level 1", 78),
-	new MonsterEntry("skmage_fire4", "Horror Mage", 110, "Palace Cellar Level 1", 78),
-	new MonsterEntry("sandraider3", "Invader", 130, "Palace Cellar Level 2", 78),
-	new MonsterEntry("baboon1", "Dune Beast", 110, "Palace Cellar Level 2", 78),
-	new MonsterEntry("sk_archer5", "Horror Archer", 95, "Palace Cellar Level 2", 78),
-	new MonsterEntry("blunderbore1", "Blunderbore", 130, "Palace Cellar Level 2", 78),
-	new MonsterEntry("skmage_pois4", "Horror Mage", 110, "Palace Cellar Level 2", 78),
-	new MonsterEntry("sandraider3", "Invader", 130, "Palace Cellar Level 3", 78),
-	new MonsterEntry("baboon1", "Dune Beast", 110, "Palace Cellar Level 3", 78),
-	new MonsterEntry("sk_archer5", "Horror Archer", 95, "Palace Cellar Level 3", 78),
-	new MonsterEntry("blunderbore1", "Blunderbore", 130, "Palace Cellar Level 3", 78),
-	new MonsterEntry("skmage_ltng4", "Horror Mage", 110, "Palace Cellar Level 3", 78),
 	new MonsterEntry("skeleton5", "Horror", 85, "Stony Tomb Level 1", 85),
 	new MonsterEntry("scarab1", "Dung Soldier", 125, "Stony Tomb Level 1", 85),
 	new MonsterEntry("skmage_ltng3", "Burning Dead Mage", 110, "Stony Tomb Level 1", 85),
@@ -417,21 +408,6 @@ const data = [
 	new MonsterEntry("clawviper3", "Salamander", 100, "Claw Viper Temple Level 2", 83),
 	new MonsterEntry("mummy3", "Embalmed", 100, "Claw Viper Temple Level 2", 83),
 	new MonsterEntry("unraveler2", "Guardian", 300, "Claw Viper Temple Level 2", 83),
-	new MonsterEntry("sandmaggot1", "Sand Maggot", 125, "Maggot Lair Level 1", 84),
-	new MonsterEntry("sandmaggot2", "Rock Worm", 125, "Maggot Lair Level 1", 84),
-	new MonsterEntry("swarm2", "Black Locusts", 60, "Maggot Lair Level 1", 84),
-	new MonsterEntry("scarab2", "Sand Warrior", 125, "Maggot Lair Level 1", 84),
-	new MonsterEntry("scarab3", "Scarab", 125, "Maggot Lair Level 1", 84),
-	new MonsterEntry("sandmaggot1", "Sand Maggot", 125, "Maggot Lair Level 2", 84),
-	new MonsterEntry("sandmaggot2", "Rock Worm", 125, "Maggot Lair Level 2", 84),
-	new MonsterEntry("swarm2", "Black Locusts", 60, "Maggot Lair Level 2", 84),
-	new MonsterEntry("scarab2", "Sand Warrior", 125, "Maggot Lair Level 2", 84),
-	new MonsterEntry("scarab3", "Scarab", 125, "Maggot Lair Level 2", 84),
-	new MonsterEntry("sandmaggot1", "Sand Maggot", 125, "Maggot Lair Level 3", 85),
-	new MonsterEntry("sandmaggot2", "Rock Worm", 125, "Maggot Lair Level 3", 85),
-	new MonsterEntry("swarm2", "Black Locusts", 60, "Maggot Lair Level 3", 85),
-	new MonsterEntry("scarab2", "Sand Warrior", 125, "Maggot Lair Level 3", 85),
-	new MonsterEntry("scarab3", "Scarab", 125, "Maggot Lair Level 3", 85),
 	new MonsterEntry("wraith4", "Apparition", 105, "Tal Rasha's Tomb", 80),
 	new MonsterEntry("scarab4", "Steel Weevil", 125, "Tal Rasha's Tomb", 80),
 	new MonsterEntry("mummy4", "Preserved Dead", 100, "Tal Rasha's Tomb", 80),
@@ -454,10 +430,6 @@ const data = [
 	new MonsterEntry("vulture4", "Winged Nightmare", 80, "Flayer Jungle", 80),
 	new MonsterEntry("frogdemon3", "Slime Prince", 90, "Flayer Jungle", 80),
 	new MonsterEntry("fetishblow3", "Flayer", 90, "Flayer Jungle", 80),
-	new MonsterEntry("baboon4", "Doom Ape", 110, "Lower Kurast", 80),
-	new MonsterEntry("sandleaper4", "Tree Lurker", 95, "Lower Kurast", 80),
-	new MonsterEntry("vulture3", "Hell Buzzard", 80, "Lower Kurast", 80),
-	new MonsterEntry("zealot1", "Zakarumite", 80, "Lower Kurast", 80),
 	new MonsterEntry("thornhulk3", "Thrasher", 130, "Kurast Bazaar", 81),
 	new MonsterEntry("swarm4", "Hell Swarm", 60, "Kurast Bazaar", 81),
 	new MonsterEntry("zealot2", "Faithful", 80, "Kurast Bazaar", 81),
@@ -507,6 +479,13 @@ const data = [
 	new MonsterEntry("regurgitator1", "Corpulent", 140, "Plains of Despair", 83),
 	new MonsterEntry("doomknight1", "Doom Knight", 100, "Plains of Despair", 83),
 	new MonsterEntry("megademon3", "Venom Lord", 130, "Plains of Despair", 83),
+	new MonsterEntry("bighead5", "Damned", 125, "City of the Damned", 84),
+	new MonsterEntry("batdemon5", "Dark Familiar", 80, "City of the Damned", 84),
+	new MonsterEntry("vilemother2", "Stygian Hag", 130, "City of the Damned", 84),
+	new MonsterEntry("fingermage2", "Strangler", 135, "City of the Damned", 84),
+	new MonsterEntry("regurgitator2", "Corpse Spitter", 140, "City of the Damned", 84),
+	new MonsterEntry("doomknight2", "Abyss Knight", 140, "City of the Damned", 84),
+	new MonsterEntry("megademon2", "Pit Lord", 130, "City of the Damned", 84),
 	new MonsterEntry("sandmaggot5", "World Killer", 125, "River of Flame", 85),
 	new MonsterEntry("blunderbore4", "Urdar", 130, "River of Flame", 85),
 	new MonsterEntry("vilemother3", "Grotesque", 130, "River of Flame", 85),
@@ -514,6 +493,9 @@ const data = [
 	new MonsterEntry("regurgitator3", "Maw Fiend", 140, "River of Flame", 85),
 	new MonsterEntry("doomknight2", "Abyss Knight", 140, "River of Flame", 85),
 	new MonsterEntry("megademon2", "Pit Lord", 130, "River of Flame", 85),
+	new MonsterEntry("fingermage3", "Storm Caster", 135, "The Chaos Sanctuary", 85),
+	new MonsterEntry("doomknight3", "Oblivion Knight", 210, "The Chaos Sanctuary", 85),
+	new MonsterEntry("megademon3", "Venom Lord", 130, "The Chaos Sanctuary", 85),
 	new MonsterEntry("minion1", "Minionexp", 80, "Bloody Foothills", 80),
 	new MonsterEntry("deathmauler1", "Death Mauler1", 105, "Bloody Foothills", 80),
 	new MonsterEntry("overseer1", "Over Seer", 125, "Bloody Foothills", 80),
@@ -612,7 +594,7 @@ const data = [
 	new MonsterEntry("cantor5", "Heirophant", 130, "Halls of Pain", 84),
 	new MonsterEntry("vilemother4", "Grotesque", 130, "Halls of Pain", 84),
 	new MonsterEntry("sandmaggot6", "World Killer", 125, "Halls of Pain", 84),
-	new MonsterEntry("minion9", "Slayerexp", 75, "Halls of Vaught", 84),
+	new MonsterEntry("minion9", "Slayerexp", 80, "Halls of Vaught", 84),
 	new MonsterEntry("succubus4", "Hell Temptress", 90, "Halls of Vaught", 84),
 	new MonsterEntry("putriddefiler2", "Putrid Defiler2", 110, "Halls of Vaught", 84),
 	new MonsterEntry("reanimatedhorde3", "Prowling Dead", 105, "Halls of Vaught", 84),
@@ -633,7 +615,7 @@ const data = [
 	new MonsterEntry("vampire7", "Ghoul Lord", 150, "The Worldstone Keep Level 1", 85),
 	new MonsterEntry("fetishshaman8", "Soul Killer Shaman", 260, "The Worldstone Keep Level 1", 85),
 	new MonsterEntry("suicideminion6", "Frenzied Ice Spawn", 70, "The Worldstone Keep Level 2", 85),
-	new MonsterEntry("minion11", "Greater Hell Spawn", 75, "The Worldstone Keep Level 2", 85),
+	new MonsterEntry("minion11", "Greater Hell Spawn", 80, "The Worldstone Keep Level 2", 85),
 	new MonsterEntry("fetish8", "Soul Killer", 75, "The Worldstone Keep Level 2", 85),
 	new MonsterEntry("batdemon7", "Fiend", 80, "The Worldstone Keep Level 2", 85),
 	new MonsterEntry("clawviper10", "Serpent Magus", 100, "The Worldstone Keep Level 2", 85),
@@ -642,6 +624,16 @@ const data = [
 	new MonsterEntry("unraveler8", "Horadrim Ancient", 300, "The Worldstone Keep Level 2", 85),
 	new MonsterEntry("scarab7", "Steel Weevil", 110, "The Worldstone Keep Level 2", 85),
 	new MonsterEntry("willowisp6", "Black Soul", 120, "The Worldstone Keep Level 2", 85),
+	new MonsterEntry("bloodlord5", "Blood Lord5", 210, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("imp5", "Imp5", 120, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("putriddefiler4", "Putrid Defiler4", 110, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("fingermage5", "Storm Caster", 135, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("dkmag2", "Oblivion Knight", 210, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("fetishblow8", "Soul Killer", 90, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("skmage_ltng6", "Horror Mage", 110, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("wraith8", "Specter", 105, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("succubus4", "Hell Temptress", 90, "The Worldstone Keep Level 3", 85),
+	new MonsterEntry("overseer4", "Blood Boss", 125, "The Worldstone Keep Level 3", 85),
 	new MonsterEntry("bloodlord5", "Blood Lord5", 210, "Throne of Destruction", 85),
 	new MonsterEntry("succubuswitch5", "Hell Witch", 145, "Throne of Destruction", 85),
 	new MonsterEntry("bonefetish7", "Undead Soul Killer", 125, "Throne of Destruction", 85),

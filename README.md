@@ -2,6 +2,10 @@
 
 Credits to Amazon Basin and co. for the entire experience algorithm.
 
+### v1.2.0
+- Fixed areas listed and changed to match the second PTR.
+- Bug: this calculator still shows XP overflows, which Blizzard fixed. I don't have a way to test this at the moment, so I don't know how to correct the logic.
+
 ### v1.1.1
 - Very close to being correct now.
 

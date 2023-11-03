@@ -34,7 +34,7 @@ const monLvls = [
 
 export function calculateExperience(monExp, multiplier, playerAmount, partyAmount, totalPartyLevel, yourLevel, baseMonLevel, actualMonLevel, expGained, terror) {
 	//console.log("monExp=", monExp, ",playerAmount=", playerAmount, ",partyAmount=", partyAmount, ",totalPartyLevel=", totalPartyLevel, ",yourLevel=", yourLevel, ",monLevel=", monLevel, ",expGained=", expGained);
-	let baseExp = Math.floor(monExp * monLvls[baseMonLevel - 1] / 100);
+	let baseExp = Math.floor(monExp * trun(monLvls[baseMonLevel - 1] * 125 / 100) / 100);
 	//console.log("baseExp=", baseExp);
 	let baseExpMulti = baseExp * multiplier;
 	//let testExp = baseExpMulti + Math.floor(baseExpMulti / 4);
